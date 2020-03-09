@@ -1,0 +1,51 @@
+<div class="block block-dashboard-info">
+    <div class="block-title"><strong><?= $block->escapeHtml(__('History')) ?></strong></div>
+    <div class="block-content">
+    <?php $giftcards = $block->getGiftcards(); ?>
+    <?php if ($giftcards && count($giftcards)): ?>
+        <div class="table-wrapper giftcard-history">
+            <table class="data table table-giftcard-items history" id="my-giftcards-table">
+                <caption class="table-caption"><?=  __('Giftcards') ?></caption>
+                <thead>
+                <tr>
+                    <th scope="col" class="col id">
+                        <?=  __('Date') ?>
+                    </th>
+                    <th scope="col" class="col id">
+                        <?=  __('Code') ?>
+                    </th>
+                    <th scope="col" class="col id">
+                        <?=  __('Amount') ?>
+                    </th>
+                    <th scope="col" class="col id">
+                        <?=  __('Action') ?>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($giftcards as $giftcard): ?>
+                    <tr>
+                        <td data-th="<?= $block->escapeHtml(__('Date')) ?>" class="col date">
+                            <?=  $block->formatDate($giftcard->getActionTime()) ?>
+                        </td>
+                        <td data-th="<?= $block->escapeHtml(__('Code')) ?>" class="col">
+                            <?=  $giftcard->getCode() ?>
+                        </td>
+                        <td data-th="<?= $block->escapeHtml(__('Amount')) ?>" class="col total">
+                            <?= $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($giftcard->getAmount());?>
+                        </td>
+                        <td data-th="<?= $block->escapeHtml(__('Action')) ?>" class="col">
+                            <?=  $giftcard->getAction() ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    <?php else: ?>
+        <div class="message info empty"><span><?=  __('There is no activity yet.') ?></span></div>
+    <?php endif ?>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+

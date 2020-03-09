@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Mageplaza_Giftcard::css/app.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="a_view_to_play_around_js" template="Mageplaza_Giftcard::jstest/test.phtml" />
+        </referenceContainer>
+    </body>
+</page>

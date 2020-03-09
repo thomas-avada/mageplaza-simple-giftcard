@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <title>My giftcards</title>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">My Giftcards</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Mageplaza\Giftcard\Block\Giftcard\Dashboard\Info" name="giftcard_dashboard_info" as="info" template="Mageplaza_Giftcard::info.phtml" cacheable="false"/>
+            <block class="Mageplaza\Giftcard\Block\Giftcard\Dashboard\History" name="giftcard_dashboard_history" as="history" template="Mageplaza_Giftcard::history.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

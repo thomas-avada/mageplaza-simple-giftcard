@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_action_postdispatch_giftcard_code_save">
+        <observer name="mageplaza_new_giftcard_created" instance="Mageplaza\Giftcard\Observer\NewGiftcardCreated"/>
+    </event>
+    <!--<event name="mageplaza_giftcard_save_after">-->
+        <!--<observer name="mageplaza_new_giftcard_created" instance="Mageplaza\Giftcard\Observer\NewGiftcardCreated"/>-->
+    <!--</event>-->
+</config>

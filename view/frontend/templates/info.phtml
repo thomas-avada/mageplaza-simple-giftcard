@@ -1,0 +1,45 @@
+<div class="block block-dashboard-info">
+    <?php $block->isRedeemAllowed() ?>
+    <div class="block-title">
+        <strong><?= $block->escapeHtml(__('Giftcard Information')) ?></strong>
+    </div>
+    <div class="block-content">
+        <div class="box box-giftcard-balance">
+            <strong class="box-title">
+                <span><?= $block->escapeHtml(__('Balance')) ?></span>
+            </strong>
+            <div class="box-content">
+
+                <?=
+                $this->helper('Magento\Framework\Pricing\Helper\Data')
+                    ->currency($block->getBalance())
+                ?>
+            </div>
+        </div>
+        <?php if($block->isRedeemAllowed()): ?>
+        <div class="box box-redeem-action">
+            <strong class="box-title">
+                <span><?= $block->escapeHtml(__('Redeem')) ?></span>
+            </strong>
+            <div class="box-content">
+                <form class="form"
+                      novalidate
+                      action="<?= $block->getBaseUrl() ?>giftcard/giftcode/redeem"
+                      method="POST"
+                      id="giftcard-redeem-form">
+                    <div class="field" style="display: flex">
+                        <div class="control">
+                            <input name="redeem" type="text" id="redeem-input"/>
+                        </div>
+                        <div class="actions">
+                            <button class="action primary" title="Redeem this amount" type="submit">
+                                <span>Redeem</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>

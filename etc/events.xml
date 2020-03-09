@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_model_service_quote_submit_success">
+        <observer name="mageplaza_create_giftcard" instance="Mageplaza\Giftcard\Observer\CreateGiftcard"/>
+    </event>
+    <event name="controller_action_predispatch_checkout_cart_couponPost">
+        <observer name="mageplaza_apply_giftcode" instance="Mageplaza\Giftcard\Observer\ApplyGiftcode"/>
+    </event>
+    <event name="controller_action_predispatch_giftcard_email_test">
+        <observer name="magento_email_test" instance="Mageplaza\Giftcard\Observer\TestEmail"/>
+    </event>
+    <event name="sales_model_service_quote_submit_before">
+        <observer name="giftcard_discount_observer" instance="Mageplaza\Giftcard\Observer\SalesConvertQuote" />
+    </event>
+    <!--<event name="controller_action_predispatch_checkout_cart_index">-->
+        <!--<observer name="mageplaza_apply_giftcode_collect_total" instance="Mageplaza\Giftcard\Observer\RecollectTotal"/>-->
+    <!--</event>-->
+</config>

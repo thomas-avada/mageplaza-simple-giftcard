@@ -1,0 +1,26 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="giftcard_codes" xsi:type="string">Mageplaza\Giftcard\Model\ResourceModel\Giftcard\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Mageplaza\Giftcard\Model\ResourceModel\Giftcard\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">giftcard_code</argument>
+            <argument name="resourceModel" xsi:type="string">Mageplaza\Giftcard\Model\ResourceModel\Giftcard</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Checkout\Block\Cart\Coupon">
+        <plugin name="Mageplaza_Giftcard_Giftcode_Discount_Apply_Plugin" type="Mageplaza\Giftcard\Plugin\ApplyGiftcode" sortOrder="10" disabled="false"  />
+    </type>
+    <preference for="Mageplaza\Giftcard\Api\HelloInterface"
+                type="Mageplaza\Giftcard\Model\Hello" />
+    <preference for="Mageplaza\Giftcard\Api\GiftcardInterface"
+                type="Mageplaza\Giftcard\Model\Api\Giftcard" />
+    <preference for="Mageplaza\Giftcard\Api\SpendPointInterface"
+                type="Mageplaza\Giftcard\Model\Api\SpendPoint" />
+    <preference for="Mageplaza\Giftcard\Api\GiftcardValidInterface"
+                type="Mageplaza\Giftcard\Model\Api\GiftcardValid" />
+</config>

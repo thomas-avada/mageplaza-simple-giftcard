@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/hello/name/:name" method="GET">
+        <service class="Mageplaza\Giftcard\Api\HelloInterface" method="name"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/giftcard/:giftcard_id" method="GET">
+        <service class="Mageplaza\Giftcard\Api\GiftcardInterface" method="show"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/giftcards/calculate" method="GET">
+        <service class="Mageplaza\Giftcard\Api\GiftcardInterface" method="calculate"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/spend/points/:point" method="GET">
+        <service class="Mageplaza\Giftcard\Api\SpendPointInterface" method="calculate"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/giftcards/isValid" method="POST">
+        <service class="Mageplaza\Giftcard\Api\GiftcardValidInterface" method="isValid"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
